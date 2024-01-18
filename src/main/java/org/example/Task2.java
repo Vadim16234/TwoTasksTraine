@@ -17,18 +17,18 @@ import java.util.Map;
     Дубликатов нет
  */
 public class Task2 {
-    public Map<Integer, Integer> doubl(int[] array) {
-        int count;
+    public boolean doubl(int[] array) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int num : array) {
-            if (map.containsKey(num)) {
-                count = map.get(num);
-                map.put(num, count + 1);
-            } else {
-                map.put(num, 1);
+
+        for (int i = 0; i < array.length; i++) {
+            map.put(array[i], i);
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            if (map.containsKey(array[i]) && map.get(array[i]) != i) {
+                return true;
             }
         }
-        System.out.println(map);
-        return map;
+        return false;
     }
 }
