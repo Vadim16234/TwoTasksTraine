@@ -24,12 +24,9 @@ public class Task1 {
 
         for (int i = 0; i < array.length; i++) {
             map.put(array[i], i);
-        }
-
-        for (int i = 0; i < array.length; i++) {
             int dif = number - array[i];
             if (map.containsKey(dif) && map.get(dif) != i) {
-                return new int[] {i, map.get(dif)};
+                return new int[]{i, map.get(dif)};
             }
         }
         return null;
