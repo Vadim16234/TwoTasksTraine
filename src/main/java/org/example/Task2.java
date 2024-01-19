@@ -1,7 +1,6 @@
 package org.example;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /*
     Дан массив целых чисел.
@@ -18,15 +17,13 @@ import java.util.Map;
  */
 public class Task2 {
     public boolean doubl(int[] array) {
-        Map<Integer, Integer> map = new HashMap<>();
+        Set<Integer> set = new HashSet<>();
 
         for (int i = 0; i < array.length; i++) {
-            map.put(array[i], i);
-        }
-
-        for (int i = 0; i < array.length; i++) {
-            if (map.containsKey(array[i]) && map.get(array[i]) != i) {
+            if (set.contains(array[i])) {
                 return true;
+            } else {
+                set.add(array[i]);
             }
         }
         return false;
